@@ -1,0 +1,64 @@
+/* CSS for form container */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* CSS for form labels */
+  .form-container label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* CSS for form input fields */
+  .form-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  /* CSS for form submit button */
+  .form-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* CSS for form submit button on hover */
+  .form-container input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* CSS for form responsiveness */
+  @media screen and (max-width: 600px) {
+    .form-container {
+      max-width: 100%;
+    }
+  }
+
+  .flex{
+    display:flex
+  }
+
+  .fm{
+    width:200px;
+    height: 60px;
+    margin-left:0px;
+  }
+  .input type{
+    width: 100vw;
+  }
+  input{
+    width:70vw;
+  }
+  .input{
+    width: 100vw;
+  }
+  

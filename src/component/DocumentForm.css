@@ -1,0 +1,10 @@
+.di-flex{
+    display: flex;
+    padding: 20px;
+}
+
+.control{
+    width: 90px;
+    /* height: 300px; */
+    
+}

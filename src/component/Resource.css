@@ -1,0 +1,11 @@
+
+
+thead,th,td{
+    border:1px solid   #271775
+}
+tbody{
+    background-color: #fff;
+}
+#id{
+    width: min-content;
+}

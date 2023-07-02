@@ -1,0 +1,19 @@
+.table-container{
+    max-width: 100000%;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.table-bordered{
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered thead{
+    border: 1   solid #dee2e6
+}
+#id{
+    width:min-content;
+}
+#f{
+
+}

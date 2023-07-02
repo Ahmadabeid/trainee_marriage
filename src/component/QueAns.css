@@ -1,0 +1,53 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #131313;
+  }
+
+  .table th {
+    background-color: #8492d8;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .action-buttons a {
+    margin: 0 5px;
+    color: #555;
+    text-decoration: none;
+  }
+
+  .action-buttons a:hover {
+    color: #000;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .table th,
+    .table td {
+      padding: 5px;
+    }
+  }
+  .table tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  .table th {
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+  }
+  
+  .table th:hover {
+    background-color: #ccc;
+  }
+  *.trash{
+    height: 37.4px;
+    width: 100px;
+  }
