@@ -5,6 +5,8 @@ import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import './CourseForm.css';
 import './TraineeForm.css';
+import './UpdateTrainee.css'
+
 
 function UpdateTrainee() {
     let navigate=useNavigate();
@@ -82,9 +84,9 @@ function UpdateTrainee() {
           <div className="card">
           <div className="card-header">
           <div className="col-sm-4">
-          <div class="form-container">
+          <div class="form-container table-wrapper">
             <h3> Update Trainee</h3>
-            <form class="form" onSubmit={(e)=>onSubmit(e)}>
+            <form class="form " onSubmit={(e)=>onSubmit(e)}>
 <div className="card-body">
   <div class="form-group">
      
@@ -150,7 +152,7 @@ function UpdateTrainee() {
   onChange={(e) => onInputChange(e)} />
   </div>
   &nbsp; &nbsp; &nbsp; &nbsp;
-  <div id="margin,form-group">
+  {/* <div id="margin,form-group">
   <label>Password:</label>
   <input className='input' 
   type="password" 
@@ -159,7 +161,7 @@ function UpdateTrainee() {
   value={password}
   onChange={(e) => onInputChange(e)}
     />
-  </div> 
+  </div>  */}
   &nbsp; &nbsp; &nbsp; &nbsp;
   <div class="margin,form-group"> 
   <label>Address:</label>
@@ -171,7 +173,7 @@ function UpdateTrainee() {
   onChange={(e) => onInputChange(e)}  />
   </div>
   &nbsp; &nbsp; &nbsp; &nbsp;
-  <div class="margin,form-group"> 
+  {/* <div class="margin,form-group"> 
   <label>Age:</label>
   <input 
   className='input' 
@@ -180,7 +182,7 @@ function UpdateTrainee() {
   id="age"
   value={age} 
   onChange={(e) => onInputChange(e)}  />
-  </div>
+  </div> */}
   &nbsp; &nbsp; &nbsp; &nbsp;
   
   
@@ -218,19 +220,22 @@ function UpdateTrainee() {
   onChange={(e) => onInputChange(e)}  />
   </div>
   &nbsp; &nbsp; &nbsp; &nbsp;
+  <div class="margin,form-group">
+  <label>Reg No:</label>
+  <input 
+  className='input' 
+  type="text" 
+  name="regNo" 
+  id="regNo" 
+  value={regNo} 
+  onChange={(e) => onInputChange(e)}  />
+  </div>
   
   </div>
-  <div class="form4">
-  &nbsp; &nbsp; 
-  
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  
-  
-  </div>
+
   </div>
   <div className="card-footer">
   <div className="col-sm-2">
-  <br></br>
 
   <Link
       to="/trainee"

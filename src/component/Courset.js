@@ -13,18 +13,18 @@ const Courset = () => {
   }, []);
 
   const loadCourse =async()=>{
-    const fetch = await axios.get("http://localhost:8080/Course/getCourses");
+    const fetch = await axios.get("http://localhost:8085/course/getCourses");
     setCourse(fetch.data);
   };
 
   const deleteCourse =async(courseId)=>{
-    await axios.delete(`http://localhost:8080/Course/deleteCourseById/${courseId}`);
+    await axios.delete(`http://localhost:8085/course/deleteCourseById/${courseId}`);
     loadCourse();
   };
 
   return (
     <>
-    <Navbar/> 
+    <Navbar/>
       <Sidebar />
    <div className="content-wrapper">
   <section className="content-header">

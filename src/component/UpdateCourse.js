@@ -29,12 +29,12 @@ function UpdateCourse() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.put(`http://localhost:8080/Course/updateCourse/${courseId}`, course);
+    await axios.put(`http://localhost:8085/course/updateCourse/${courseId}`, course);
     navigate('/courset');
   }
 
   const loadCourse = async () => {
-    const fetch = await axios.get(`http://localhost:8080/Course/getCourseById/${courseId}`);
+    const fetch = await axios.get(`http://localhost:8085/course/getCourseById/${courseId}`);
     setCourse(fetch.data);
   }
 

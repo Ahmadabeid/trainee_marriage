@@ -6,38 +6,6 @@ import axios from 'axios';
 import './DocumentForm.css'
 
 
-    
-
-
-// handleChange=(e)=>{
-//     e.preventDefault();
-//     console.log('Document Id', this.state.docId);
-//     console.log('Document Type', this.state.docType);
-//     console.log('Document Name', this.state.docName);
-//     console.log('Document Size', this.state.docSize);
-
-// }
-// const certificateFileRef=useRef(null);
-// const onCertificateAttach =() => {
-//     const file = certificateFileRef.current.files[0];
-//     if (file){
-//         console.log('File Selected:', file.name);
-//     }
-// }
-// const onCertificateAttach = (e) => {
-//     const file = certificateFileRef.current.files[0];
-// }
-
-// const handleFileChange = (event) => {
-//     const file = event.target.files[0];
-//     const fileSize = file.size; // Size in bytes
-  
-//     console.log("File size:", fileSize);
-//   };
-
-
-
-
 function DocumentForm(){
   const navigateToDocument = useNavigate();
 
@@ -46,6 +14,53 @@ function DocumentForm(){
     docName:"",
     docSize:""
   });
+
+  const [docFile, setDocFile]=useState(null);
+  const [docSize, setDocSize]=useState("");
+  const[docName, setDocName]=useState("");
+
+  const handleInputChange =(event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    if (name === "docName") {
+      setDocName(value);
+  }
+  else if(name === "docFile") {
+    setDocFile(event.target.files[0]);
+    setDocSize(formatFileSize(event.target.files[0].size));
+  }
+};
+
+const handleSubmit= async(event)=>{
+  event.preventDefault();
+  const formData = new FormData();
+  formData.append("docNme", docName);
+  formData.append("file", docFile);
+  try{
+    const response = await axios.post("http://localhost:8080/Document/addDocument,document");
+    console.log(response.data);
+  } catch(error){
+    console.error(error);
+  }
+};
+
+const formatFileSize =(size)=>{
+  const kiloBytes = size / 1024;
+  if(kiloBytes < 1){
+    return size + "bytes";
+  }
+  const megaBytes =kiloBytes / 1024;
+  if(megaBytes< 1){
+    return kiloBytes + "KB";
+  }
+  const gigaBytes =megaBytes / 1024;
+  if (gigaBytes < 1){
+    return megaBytes + "MB";
+  } return gigaBytes + "GB";
+  
+};
+
+  
 
   const handleChange=(e)=>{
     setDocument({...document, [e.target.name]: e.target.value});
@@ -94,36 +109,39 @@ function DocumentForm(){
                 </div>
                 
                     </div>
-                    <form onSubmit={(e) => onSubmit(e)}>
+                    <form onSubmit={(e) => onSubmit(handleSubmit)}>
   <div className="card-body">
     <div className="di-flex">
       <div className="form-group">
-        <label htmlFor="docType">Document Type:</label>
+        <label htmlFor="docName">Document Name:</label>
         <input
           type="text"
           
-          id="docType"
-          name="docType"
-          onChange={(e) => handleChange(e)}
-          placeholder="Enter document type"
+          id="docName"
+          name="docName"
+          onChange={ handleInputChange}
+          placeholder="Enter document name"
           required
         />
       </div>
       &nbsp; &nbsp;&nbsp;
       <div  >
-        <label htmlFor="docName">Document Name:</label>
+        <label htmlFor="docFile">Document File:</label>
         <input
            class="control"
           type="file"
-          id="docName"
+          id="docFile"
           title="file"
-          placeholder="Enter document name"
-          name="docName"
+          onChange={handleInputChange}
+          placeholder="Enter document file"
+          name="docFile"
           accept="application/pdf"
         />
+        
       </div>
       &nbsp;&nbsp;&nbsp;
-      <div >
+      <div>{docSize}</div>
+      {/* <div >
         <label htmlFor="docSize">Document Size:</label>
         <input
         class="control"
@@ -135,7 +153,7 @@ function DocumentForm(){
           required
           onChange={(e) => handleChange(e)}
         />
-      </div>
+      </div> */}
     </div>
    
     <div className="card-footer">

@@ -22,7 +22,7 @@ function CourseForm() {
 
 const onSubmit= async(e)=>{
   e.preventDefault();
-  await axios.post("http://localhost:8080/Course/addCourse", course);
+  await axios.post("http://localhost:8085/course/addCourse", course);
   navigateToCourset("/courset");
 
 }

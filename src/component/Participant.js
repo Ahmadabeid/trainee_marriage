@@ -10,10 +10,13 @@ import Sidebar from './Sidebar';
 const Participant = ( ) => {
   const {userID} = useParams();
   const[participant, setTParticipant]=useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredTrainee, setFilteredTrainee] = useState([]);
 
   useEffect(()=>{
     loadParticipant();
   }, []);
+  
   const loadParticipant =async()=>{
     const fetch = await axios.get("http://localhost:8080/Participant/getParticipants");
     setTParticipant(fetch.data);
@@ -51,7 +54,7 @@ const Participant = ( ) => {
         <div className="col-20">
           <div className="card">
           <div className="card-header">
-          <div className="col-sm-1">
+          <div className="col-sm-2">
                     <Link to="/participantForm">
                 <button type="button" class="btn btn-block btn-outline-success btn-sm " >
                 <i class="fa fa-plus-alt"></i> Add Participant</button>
@@ -68,12 +71,12 @@ const Participant = ( ) => {
           <th id="us">Username</th>
           <th id="f">Email</th>
           <th id="n">Address</th>
-          <th id="age">Age</th>
+          {/* <th id="age">Age</th> */}
           
-          <th id="gender">Gender</th>
-          <th id="n">Password</th>
+          {/* <th id="gender">Gender</th> */}
+          {/* <th id="n">Password</th> */}
           <th id="us">Phone No</th>
-          <th id="us">Qualification</th>
+          {/* <th id="us">Qualification</th> */}
           <th id="us">Status</th>
           <th id="f">Actions</th>
         </tr>
@@ -88,30 +91,30 @@ const Participant = ( ) => {
           <td>{participant.lastName}</td>
           <td>{participant.username}</td>
           <td>{participant.email}</td>
-          <td>{participant.password}</td>
+          {/* <td>{participant.password}</td> */}
           <td>{participant.address}</td>
-          <td>{participant.age}</td>
-          <td>{participant.gender}</td>
+          {/* <td>{participant.age}</td> */}
+          {/* <td>{participant.gender}</td> */}
           <td>{participant.phoneNumber}</td>
-          <td>{participant.qualification}</td>
+          {/* <td>{participant.qualification}</td> */}
           <td>{participant.status}</td>
           <td>
            
-          <center>&nbsp;  <Link to ={`/viewParticipant/${participant.userID}`}class="btn btn-info">
+            <Link to ={`/viewParticipant/${participant.userID}`}class="btn btn-info">
                             <span class="glyphicon glaphycon-check-alt"></span>
                             <i class="fas fa-eye"></i>
                            
-                        </Link>
+                        </Link>&nbsp;
                         <Link to ={`/updateParticipant/${participant.userID}`}class="btn btn-primary">
                             <span className="glyphicon glaphycon-check-alt"></span>
                             <i className="fa fa-edit"></i>
                            
-                        </Link>
+                        </Link>&nbsp;
              <button type="button" class="btn btn-sm-10 btn-danger" onClick={()=> deleteTrainee(participant.userID)}>
                            
                            <i class="fas fa-trash-alt"></i>
                        </button>
-            </center>
+           
           </td>
         </tr>
         )

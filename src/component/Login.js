@@ -1,105 +1,98 @@
-import React,{useState} from 'react'
-import './Login.css'
-import logomufti from './Asset/logomufti.png';
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+// import AuthContext from './AuthContext'
+import Slide from '@mui/material/Slide';
+// import AuthContext from './AuthContext/AuthProvider'
+import { uswContext} from 'react';
+import axios from 'axios';
+// import { AuthProvider } from './AuthContext/AuthProvider';
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+export default function Login() {
+ const[open, setOpen] =React.useState(false);
 
-function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+ const handleClickOpen = () => {
+  setOpen(true);
+};
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    };
+const handleClose = () => {
+  setOpen(false);
+};
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-
-
-        if (email && password) {
-            
-            console.log('Logged in successfully!');
-        } else {
-            console.log('Please fill in all fields!');
-        }
-    };
-
-        return (
-            <>
-            
-            <div class="login-container" id="login-con">
-            <div class="inner-login-con">
-            <div class="left-login-info">
-          <h1 class="h-logo">
-            
-            {/* <span class="fas fa fa-laptop"></span> */}
-            <br></br>
-            Trainee<br></br>Marriage System
-       
-            
-          </h1>
-          {/* <img src="./Asset/logoMufti.png"/> */}
-          <img src={logomufti} alt="logomufti" class="image"/>
-
-          
-
-          
-            {/* <p> 
-              Coreehsdghgsdhjgdshjgdsjhsd
-              sddshgsdjhgsdjhghjsdvfdghghgd
-              dshgsdjhgsdhfjhsdfgdsfdsfsdf
-              sdgsdhgsdjhgsdjhsdjhshdsfdsfsd
-              gfsaghdfghfagfasgfasghfahgadsfg
-              ajsgfjaghfdhgasdfghasfhgasfhgdag
-              asfashgfaghfgadsfhadsgfashgfa
-              jhfsajfasfsahfsahjfsafhsafhfsa
-              asjfsafsahgfsahgfsaghfsahgfsahgsa
-              asgfsahgfsahgfsaghfsaghsafghsf
-              sahgshasafhgashfsagfsafhgsfgsa
-            </p> */}
-           
-          
-            
-            
-            
-          
-        </div>
-     <form onsubmit="{handleSubmit}" > 
-     {/* class="card"> */}
-      {/* <div id="card"></div> */}
-  <h2>Login Here</h2>
-  <div>
-    <label htmlfor="email">Email:</label>
-    <input type="email" id="email" defaultvalue="{email}" onchange="{handleEmailChange}" required />
-  </div>
-  <div>
-    <label htmlfor="password">Password:</label>
-    <input type="password" id="password" defaultvalue="{password}" onchange="{handlePasswordChange}" required />
-  </div>
-  <br></br>
-  <br></br>
-  <div class="remember-con">
-                <input type="checkbox" name="username" id="uname" />
-                &nbsp;
-                <span>Remember me</span>
+   return (
+        <>
+          <div className="hold-transition login-page">
+            <div className="login-box">
+              <div className="login-logo">
+                <a href="../../index2.html"><b>Trainee</b>Marriage</a>
               </div>
-  <div>
-  <button type="submit">Login
-  <span class="fas fa fa-sign-in"></span>
-  </button>
-  </div>
-</form>
-</div>
-</div>
+              <div className="card">
+                <div className="card-body login-card-body">
+                  <p className="login-box-msg"><i>Login Here</i></p>
+                  <form >
+                    <div className="input-group mb-3">
+                      <input 
+                      type="email" 
+                      className="form-control" 
+                      placeholder="Email"
+                      required />
+                      <div className="input-group-append">
+                        <div className="input-group-text">
+                          <span className="fas fa-envelope" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="input-group mb-3">
+                      <input 
+                      type="password" 
+                      className="form-control"
+                       placeholder="Password"
+                        required />
+                      <div className="input-group-append">
+                        <div className="input-group-text">
+                          <span className="fas fa-lock" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-8">
+                        <div className="icheck-primary">
+                          <input type="checkbox" id="remember" />
+                          <label htmlFor="remember">Remember Me</label>
+                        </div>
+                      </div>
+                      <div className="col-4">
+                      <Link to="/home">
+                        
+                        <button type="button" className="btn btn-primary btn-block">Login</button>
+                        </Link>
+                      </div>
+    
+    
+                      {/* <Link to="/queAnsForm">
+                    <button type="button" class="btn btn-block btn-outline-success btn-sm " >
+                    <i class="fa fa-plus-alt"></i> Add QueAns</button>
+                    </Link> */}
+                    </div>
+                  </form>
+                  <div className="social-auth-links text-center mb-3">
+                    <p>- OR -</p>
+                    <a href="#" className="btn btn-block btn-primary">
+                      <i className="fab fa-facebook mr-2" /> Sign in using Facebook
+                    </a>
+                  </div>
+                  <p className="mb-1">
+                    <a href="forgot-password.html">I forgot my password</a>
+                  </p>
+                  <p className="mb-0">
+                    <a href="register.html" className="text-center">Register</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+  )
+}
 
-
-            
-            </>
-        );
-    };
-
-
-export default Login

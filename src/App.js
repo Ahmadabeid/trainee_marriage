@@ -27,7 +27,6 @@ import UserAdmin from './component/UserAdmin';
 import TraineeForm from './component/TraineeForm';
 import ResourceForm from './component/ResourceForm';
 import QueAnsForm  from './component/QueAnsForm';
-import Login from './component/Login'
 import ViewDocument from './component/ViewDocument';
 import UpdateDocument from './component/UpdateDocument';
 import ViewQueAns from './component/ViewQueAns';
@@ -36,10 +35,13 @@ import ViewTimetable from './component/ViewTimetable';
 import UpdateTimetable from './component/UpdateTimetable';
 import ViewResource from './component/ViewResource';
 import UpdateResource from './component/UpdateResource';
-import UpdateCourse from './component/UpdateCourse';
 import UpdateQueAns from './component/UpdateQueAns';
 import ViewCourse from './component/ViewCourse'
 import UpdateTrainee from './component/UpdateTrainee';
+import UpdateCourse from './component/UpdateCourse';
+import ReportGenerator from './component/ReportGenerator';
+import PdfGenerator from './component/PdfGenerator';
+import Login from './component/Login'
 
 
 
@@ -52,7 +54,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path='login' element={<Login/>}/>
+          <Route path='' element={<Login/>}/>
           <Route path='home' element={< Home/>} />
           <Route path='navbar' element={< Navbar />} />
           <Route path='sidebar' element={< Sidebar />} />
@@ -87,11 +89,12 @@ class App extends React.Component {
           <Route path="/updateTimetable/:timeTableId" element={<UpdateTimetable/>}/>
           <Route path="/viewResource/:resId" element={<ViewResource/>}/>
           <Route path="/updateResource/:resId" element={<UpdateResource/>}/>
-          <Route path="/updatCourse/:courseId" element={<UpdateCourse/>}/>
           <Route path='/updateQueAns/:queAnsId' element={<UpdateQueAns/>}/>
           <Route path='/viewCourse/:courseId' element={<ViewCourse/>}/>
-          <Route path='updateTrainee/:userID' element={<UpdateTrainee/>}/>
-      
+          <Route path='/updateTrainee/:userID' element={<UpdateTrainee/>}/>
+          <Route path="/updateCourse/:courseId" element={<UpdateCourse/>}/>
+          <Route path='reportGenerator' element={<ReportGenerator/>}/>
+          <Route path='pdfGenerator' element={<PdfGenerator/>}/>
           
         </Routes>
       </BrowserRouter>

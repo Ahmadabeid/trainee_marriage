@@ -1,0 +1,5 @@
+.table-wrapper {
+    max-height: 495px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+  }

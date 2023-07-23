@@ -48,16 +48,6 @@ const Sidebar = () => {
             </Link>
             </li>
             <li className="nav-item">
-                <Link to="/location">
-            <a href="#" className="nav-link">
-              <i className="nav-icon far  fa-map" />
-              <p>
-                Location
-              </p>
-            </a>
-            </Link>
-            </li>
-            <li className="nav-item">
                 <Link to="/courset">
             <a  className="nav-link">
             {/* <i className="nav-icon fas fa-book" /> */}
