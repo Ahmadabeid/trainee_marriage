@@ -25,17 +25,22 @@ function UpdateResource (){
     useEffect(() =>{
         loadResource()
     }, []);  
+
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
     const onSubmit =async (e)=>{
         e.preventDefault();
 
-        await axios.put(`http://localhost:8080/Resource/updateResource/${resId}`, resource);
+        await axios.put(`http://localhost:8085/resource/updateResource/${resId}`, resource,{headers});
         navigate("/resource");
     }
 
     const loadResource =async ()=>{
         const fetch= await
-        axios.get(`http://localhost:8080/Resource/getResourceById/${resId}`)
+        axios.get(`http://localhost:8085/resource/getResourceById/${resId}`,{headers})
         setResource(fetch.data);
     }
   return (

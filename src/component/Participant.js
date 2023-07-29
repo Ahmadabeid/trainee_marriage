@@ -16,14 +16,19 @@ const Participant = ( ) => {
   useEffect(()=>{
     loadParticipant();
   }, []);
+
+  
+const headers={
+  Authorization: `Basic QWhtYWQ6MTIz`,
+}
   
   const loadParticipant =async()=>{
-    const fetch = await axios.get("http://localhost:8080/Participant/getParticipants");
+    const fetch = await axios.get("http://localhost:8085/participant/getParticipants",{headers});
     setTParticipant(fetch.data);
   };
 
   const deleteTrainee =async(userID)=>{
-    await axios.delete(`http://localhost:8080/Participant/deleteParticipant/${userID}`);
+    await axios.delete(`http://localhost:8085/participant/deleteParticipant/${userID}`,{headers});
     loadParticipant();
   };
 

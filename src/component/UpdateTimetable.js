@@ -24,18 +24,23 @@ function UpdateTimetable (){
     useEffect(() =>{
         loadTimeTable()
     }, []);
+
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
     const onSubmit =async (e)=>{
         e.preventDefault();
 
-        await axios.put(`http://localhost:8080/TimeTable/updateTimeTable/${timeTableId}`, timeTable);
+        await axios.put(`http://localhost:8085/timetable/updateTimeTable/${timeTableId}`, timeTable,{headers});
         navigate("/timeTable");
     }
 
     
     const loadTimeTable =async ()=>{
         const fetch= await
-        axios.get(`http://localhost:8080/TimeTable/getTimeTableById/${timeTableId}`)
+        axios.get(`http://localhost:8085/timetable/getTimeTableById/${timeTableId}`,{headers})
         setTimeTable(fetch.data);
     }
 

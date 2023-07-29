@@ -29,27 +29,15 @@ function TraineeForm() {
         setTrainee({...trainee,[e.target.name]: e.target.value})
       };
     
-    //  const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log('FirstName:',this.state.firstName);
-    //     console.log('MiddleName:',this.state.middleName);
-    //     console.log('LastName:',this.state.lastName);
-    //     console.log('Username:', this.state.username);
-    //     console.log('Email:', this.state.email);
-    //     console.log('Address:', this.state.address);
-    //     console.log('Age:', this.state.age);
-    //     console.log('Gender:', this.state.gender);
-    //     console.log('Password:', this.state.password);
-    //     console.log('Phone Number:', this.state.phoneNumber);
-    //     console.log('RegistrationNumber:', this.state.regNo);
-    //     console.log('Role:', this.state.role);
-    //     console.log('Authority:', this.state.authority);
-    //   };
+      
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
 
-      const onSubmit=async(e)=>{
+const onSubmit=async(e)=>{
         e.preventDefault();
 
-        await axios.post("http://localhost:8080/Trainee/addTrainee", trainee);
+        await axios.post("http://localhost:8085/trainee/addTrainee", trainee,{headers});
         navigateToTrainee("/trainee");
 
       }

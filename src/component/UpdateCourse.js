@@ -26,15 +26,20 @@ function UpdateCourse() {
     loadCourse();
   }, []);
 
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.put(`http://localhost:8085/course/updateCourse/${courseId}`, course);
+    await axios.put(`http://localhost:8085/course/updateCourse/${courseId}`, course,{headers});
     navigate('/courset');
   }
 
   const loadCourse = async () => {
-    const fetch = await axios.get(`http://localhost:8085/course/getCourseById/${courseId}`);
+    const fetch = await axios.get(`http://localhost:8085/course/getCourseById/${courseId}`,{headers});
     setCourse(fetch.data);
   }
 

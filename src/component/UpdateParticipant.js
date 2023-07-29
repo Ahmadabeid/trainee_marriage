@@ -36,17 +36,23 @@ function UpdateParticipant() {
     useEffect(() =>{
         loadParticipant()
     }, []);
+
+
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
     const onSubmit =async (e)=>{
         e.preventDefault();
 
-        await axios.put(`http://localhost:8080/Trainee/updateTrainee/${userID}`, document);
-        navigate("/trainee");
+        await axios.put(`http://localhost:8085/participant/updateParticipant/${userID}`, document,{headers});
+        navigate("/participant");
     }
 
     const loadParticipant =async ()=>{
         const fetch= await
-        axios.get(`http://localhost:8080/Participant/getParticipantById/${userID}`)
+        axios.get(`http://localhost:8085/Participant/getParticipantById/${userID}`,{headers})
         setParticipant(fetch.data);
     }
 

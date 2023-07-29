@@ -15,14 +15,19 @@ const Document = () => {
     loadDocument();
   }, []);
 
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
 
   const loadDocument =async()=>{
-    const fetch = await axios.get("http://localhost:8080/Document/getDocuments");
+    const fetch = await axios.get("http://localhost:8085/document/getDocuments",{headers});
     setDocument(fetch.data);
   };
 
   const deleteDocument =async(docId)=>{
-    await axios.delete(`http://localhost:8080/Document/deleteDocumentById/${docId}`);
+    await axios.delete(`http://localhost:8085/document/deleteDocumentById/${docId}`,{headers});
     loadDocument();
   };
 

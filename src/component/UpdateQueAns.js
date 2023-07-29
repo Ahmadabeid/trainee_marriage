@@ -25,16 +25,21 @@ function UpdateQueAns (){
         loadQueAns()
     }, []);  
 
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
     const onSubmit =async (e)=>{
         e.preventDefault();
 
-        await axios.put(`http://localhost:8080/QueAns/updateQueAns/${queAnsId}`, queAns);
+        await axios.put(`http://localhost:8085/queAns/updateQueAns/${queAnsId}`, queAns,{headers});
         navigate("/queAns");
     }
 
     const loadQueAns =async ()=>{
         const fetch= await
-        axios.get(`http://localhost:8080/QueAns/getQueAnsById/${queAnsId}`)
+        axios.get(`http://localhost:8085/queAns/getQueAnsById/${queAnsId}`,{headers})
         setQueAns(fetch.data);
     }
 

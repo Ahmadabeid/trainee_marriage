@@ -23,9 +23,15 @@ function ResourceForm(){
     setResource({...resource, [e.target.name]: e.target.value });
     
 };
+
+
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
 const onSubmit= async(e)=>{
   e.preventDefault();
-  await axios.post("http://localhost:8080/Resource/addResource", resource);
+  await axios.post("http://localhost:8085/resource/addResource", resource, {headers});
   navigateToResource("/resource");
 
 }

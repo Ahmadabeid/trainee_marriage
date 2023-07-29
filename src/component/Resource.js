@@ -13,13 +13,18 @@ const Resource = () => {
     loadResource();
   }, []);
 
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
   const loadResource =async()=>{
-    const fetch = await axios.get("http://localhost:8080/Resource/getResource");
+    const fetch = await axios.get("http://localhost:8085/resource/getResource",{headers});
     setResource(fetch.data);
   };
 
   const deleteResource =async(resId)=>{
-    await axios.delete(`http://localhost:8080/Resource/delete/${resId}`);
+    await axios.delete(`http://localhost:8085/resource/delete/${resId}`,{headers});
     loadResource();
   };
   

@@ -7,7 +7,7 @@ import { useParams, Link } from 'react-router-dom'
 
 const View = () => {
   const[document, setDocument]=useState({
-    docType:"",
+    docFile:"",
     docName:"",
     docSize:""
   });
@@ -17,15 +17,20 @@ const View = () => {
     loadDocument();
   }, []);
 
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
   const onSubmit = async (e) =>{
     e.preventDefault();
 
   }
   
 
-  const {docType, docName, docSize} =document;
+  const {docFile, docName, docSize} =document;
   const loadDocument =async()=>{
-    const fetch = await axios.get(`http://localhost:8080/Document/getDocumentById/${docId}`);
+    const fetch = await axios.get(`http://localhost:8085/document/getDocumentById/${docId}`,{headers});
     setDocument(fetch.data);
   }
   return (
@@ -66,7 +71,7 @@ const View = () => {
     <div class="fm">
   <label htmlFor="documentType">Document Type:</label>
   <input
-  value={docType}
+  value={docName}
 
    class=" input" type="text" id="documentType" name="documentType" required />
   </div>
@@ -76,7 +81,7 @@ const View = () => {
   <div class="fm">
   <label htmlFor="documentName">Document Name:</label>
   <input
-  value={docName}
+  value={docFile}
   
   class=" input" type="text" id="documentName" name="documentName" required />
   </div>

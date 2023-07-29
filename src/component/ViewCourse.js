@@ -17,6 +17,11 @@ const ViewCourse = () => {
       useEffect(()=>{
         loadCourse();
       }, []);
+
+      
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
       const onSubmit = async (e) =>{
         e.preventDefault();
@@ -26,7 +31,7 @@ const ViewCourse = () => {
     
       const {courseCode, courseTitle, courseYear, courseLevel} =course;
       const loadCourse =async()=>{
-        const fetch = await axios.get(`http://localhost:8085/course/getCourseById/${courseId}`);
+        const fetch = await axios.get(`http://localhost:8085/course/getCourseById/${courseId}`,{headers});
         setCourse(fetch.data);
       }
 

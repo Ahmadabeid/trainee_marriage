@@ -10,12 +10,12 @@ function DocumentForm(){
   const navigateToDocument = useNavigate();
 
   const[document, setDocument]=useState({
-    docType:"",
     docName:"",
+    docFile:"",
     docSize:""
   });
 
-  const [docFile, setDocFile]=useState(null);
+  const [docFile, setDocFile]=useState("");
   const [docSize, setDocSize]=useState("");
   const[docName, setDocName]=useState("");
 
@@ -37,7 +37,7 @@ const handleSubmit= async(event)=>{
   formData.append("docNme", docName);
   formData.append("file", docFile);
   try{
-    const response = await axios.post("http://localhost:8080/Document/addDocument,document");
+    const response = await axios.post("http://localhost:8085/document/addDocument,document");
     console.log(response.data);
   } catch(error){
     console.error(error);
@@ -65,10 +65,14 @@ const formatFileSize =(size)=>{
   const handleChange=(e)=>{
     setDocument({...document, [e.target.name]: e.target.value});
   };
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
 
   const onSubmit= async(e)=>{
     e.preventDefault();
-    await axios.post("http://localhost:8080/Document/addDocument", document);
+    await axios.post("http://localhost:8080/Document/addDocument", document,{headers});
     navigateToDocument("/document");
 
   }

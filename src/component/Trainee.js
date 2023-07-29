@@ -9,7 +9,7 @@ const Trainee = () => {
   const { userID } = useParams();
   const [trainee, setTrainee] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredTrainee, setFilteredTrainee] = useState([]);
+  // const [filteredTrainee, setFilteredTrainee] = useState([]);
 
   useEffect(() => {
     loadTrainee();
@@ -19,13 +19,18 @@ const Trainee = () => {
     filterTrainee();
   }, [searchQuery, trainee]);
 
+  
+const headers={
+  Authorization: `Basic QWhtYWQ6MTIz`,
+}
+
   const loadTrainee = async () => {
-    const response = await axios.get("http://localhost:8080/Trainee/getTrainees");
+    const response = await axios.get("http://localhost:8085/trainee/getTrainees",{headers});
     setTrainee(response.data);
   };
 
   const deleteTrainee = async (userID) => {
-    await axios.delete(`http://localhost:8080/Trainee/delete/${userID}`);
+    await axios.delete(`http://localhost:8085/trainee/delete/${userID}`,{headers});
     loadTrainee();
   };
 
@@ -36,15 +41,21 @@ const Trainee = () => {
   const filterTrainee = () => {
     const filtered = trainee.filter((item) => {
       // Customize the filtering logic based on your data structure
-      return item.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      return 
+           item.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.email.toLowerCase().includes(searchQuery.toLowerCase());
     });
-    setFilteredTrainee(filtered);
+
+
+    // setFilteredTrainee(filtered);
+
   };
 
-  const traineeData = searchQuery ? filteredTrainee : trainee;
+  // const traineeData = searchQuery ? filteredTrainee : trainee;
+
+  const traineeData = trainee;
 
   return (
     <>
@@ -132,9 +143,6 @@ const Trainee = () => {
                             <th id="us">Username</th>
                             <th id="f">Email</th>
                             <th id="n">Address</th>
-                            {/* <th id="age">Age</th> */}
-                            {/* <th id="gender">Gender</th> */}
-                            {/* <th id="n">Password</th> */}
                             <th id="us">Phone No</th>
                             <th id="us">Reg No</th>
                             <th id="f">Actions</th>
@@ -149,7 +157,7 @@ const Trainee = () => {
                               <td>{trainee.lastName}</td>
                               <td>{trainee.username}</td>
                               <td>{trainee.email}</td>
-                              {/* <td>{trainee.password}</td> */}
+                             
                               <td>{trainee.address}</td>
                               {/* <td>{trainee.age}</td> */}
                               {/* <td>{trainee.gender}</td> */}

@@ -27,7 +27,7 @@ function UpdateTrainee() {
   
       });
 
-      const { firstName, middleName,lastName,username,email,address,age,gender,password,phoneNumber,regNo} = trainee;
+      const { firstName, middleName,lastName,username,email,address,gender,phoneNumber,regNo} = trainee;
 
       const onInputChange=(e) =>{
         setTrainee({...trainee, [e.target.name]: e.target.value});
@@ -36,17 +36,22 @@ function UpdateTrainee() {
     useEffect(() =>{
         loadTrainee()
     }, []);
+
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
     const onSubmit =async (e)=>{
         e.preventDefault();
 
-        await axios.put(`http://localhost:8080/Trainee/updateTrainee/${userID}`, document);
+        await axios.put(`http://localhost:8085/trainee/updateTrainee/${userID}`, document,{headers});
         navigate("/trainee");
     }
 
     const loadTrainee =async ()=>{
         const fetch= await
-        axios.get(`http://localhost:8080/Trainee/getTraineeById/${userID}`)
+        axios.get(`http://localhost:8085/trainee/getTraineeById/${userID}`,{headers})
         setTrainee(fetch.data);
     }
 

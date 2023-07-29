@@ -16,6 +16,11 @@ const ViewQueAns = () => {
     useEffect(() => {
         loadQueAns();
     }, []);
+
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
   const onSubmit = async (e) =>{
     e.preventDefault();
@@ -23,7 +28,7 @@ const ViewQueAns = () => {
   }
   const {queContent, ansContent, topic, comment} =queAns;
   const loadQueAns =async()=>{
-    const fetch = await axios.get(`http://localhost:8080/QueAns/getQueAnsById/${queAnsId}`);
+    const fetch = await axios.get(`http://localhost:8085/queAns/getQueAnsById/${queAnsId}`,{headers});
     setQueAns(fetch.data);
   }
     

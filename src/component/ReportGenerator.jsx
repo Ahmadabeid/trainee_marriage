@@ -19,13 +19,15 @@ const ReportGenerator = () => {
     filterTrainee();
   }, [searchQuery, trainee]);
 
+  
+
   const loadTrainee = async () => {
-    const response = await axios.get("http://localhost:8080/Trainee/getTrainees");
+    const response = await axios.get("http://localhost:8085/trainee/getTrainees");
     setTrainee(response.data);
   };
 
   const deleteTrainee = async (userID) => {
-    await axios.delete(`http://localhost:8080/Trainee/delete/${userID}`);
+    await axios.delete(`http://localhost:8085/trainee/delete/${userID}`);
     loadTrainee();
   };
 

@@ -16,12 +16,12 @@ function UpdateDocument(){
     const{docId}=useParams();
 
     const [document, setDocument] = useState({
-        docType :"",
+        docFile :"",
         docName:"",
         docSize:""
     });
 
-    const{ docType, docName, docSize} =document;
+    const{ docFile, docName, docSize} =document;
 
     const onInputChange=(e) =>{
         setDocument({...document, [e.target.name]: e.target.value});
@@ -29,17 +29,22 @@ function UpdateDocument(){
     useEffect(() =>{
         loadDocument()
     }, []);  
+
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
     const onSubmit =async (e)=>{
         e.preventDefault();
 
-        await axios.put(`http://localhost:8080/Document/updateDocument/${docId}`, document);
+        await axios.put(`http://localhost:8085/document/updateDocument/${docId}`, document,{headers});
         navigate("/document");
     }
 
     const loadDocument =async ()=>{
         const fetch= await
-        axios.get(`http://localhost:8080/Document/getDocumentById/${docId}`)
+        axios.get(`http://localhost:8085/document/getDocumentById/${docId}`)
         setDocument(fetch.data);
     }
         
@@ -90,7 +95,7 @@ function UpdateDocument(){
      
       name="docType"
       type="text"
-      value={docType}
+      value={docName}
       placeholder=""
       onChange={(e) => onInputChange(e)}
     />
@@ -103,7 +108,7 @@ function UpdateDocument(){
      
       name="docName"
       type="text"
-      value={docName}
+      value={docFile}
       placeholder=""
       onChange={(e) => onInputChange(e)}
     />

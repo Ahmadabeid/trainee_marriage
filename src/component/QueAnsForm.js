@@ -19,9 +19,14 @@ function QueAnsForm () {
 
   };
 
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
   const onSubmit=async(e)=>{
     e.preventDefault();
-    await axios.post("http://localhost:8080/QueAns/addQueAns", QueAns);
+    await axios.post("http://localhost:8085/queAns/addQueAns", QueAns, {headers});
     navigateToQueAns("/queAns");
 
   }

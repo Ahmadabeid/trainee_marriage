@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-// import AuthContext from './AuthContext'
 import Slide from '@mui/material/Slide';
-// import AuthContext from './AuthContext/AuthProvider'
 import { uswContext} from 'react';
 import axios from 'axios';
-// import { AuthProvider } from './AuthContext/AuthProvider';
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 export default function Login() {
  const[open, setOpen] =React.useState(false);
+ const [role, setRole] = useState('');
+  const [user_id, setUserId] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+
 
  const handleClickOpen = () => {
   setOpen(true);
@@ -19,6 +26,31 @@ export default function Login() {
 const handleClose = () => {
   setOpen(false);
 };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await axios.post('api/login/', {
+      email,
+      password
+    }, { withCredentials: true }); 
+
+
+    // Check if login was successful
+  
+          navigate('/technician');
+          setEmail('');
+          setPassword('');
+          setIsValidEmail(true);
+  
+  } catch (error) {
+    // Handle API errors
+    console.error('Error:', error.message);
+
+    }
+  };
+
 
    return (
         <>
