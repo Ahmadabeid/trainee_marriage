@@ -3,7 +3,7 @@ import './Resource.css'
 import { Link, NavLink, useParams } from 'react-router-dom'
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import instance from '../server/axiosClient'
+import axios from '../server/axiosClient'
 
 const Resource = () => {
   const {resId} = useParams();
