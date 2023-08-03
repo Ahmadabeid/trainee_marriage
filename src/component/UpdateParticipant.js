@@ -37,21 +37,37 @@ function UpdateParticipant() {
         loadParticipant()
     }, []);
 
+<<<<<<< HEAD
     const headers={
       Authorization: `Basic QWhtYWQ6MTIz}`,
     }
     
+=======
+
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     
     const onSubmit =async (e)=>{
         e.preventDefault();
 
         await axios.put(`http://localhost:8085/participant/updateParticipant/${userID}`, document,{headers});
+<<<<<<< HEAD
         navigate("/trainee");
+=======
+        navigate("/participant");
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     }
 
     const loadParticipant =async ()=>{
         const fetch= await
+<<<<<<< HEAD
         axios.get(`http://localhost:8085/participant/getParticipantById/${userID}`,{headers})
+=======
+        axios.get(`http://localhost:8085/Participant/getParticipantById/${userID}`,{headers})
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
         setParticipant(fetch.data);
     }
 

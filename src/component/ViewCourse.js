@@ -17,6 +17,11 @@ const ViewCourse = () => {
       useEffect(()=>{
         loadCourse();
       }, []);
+
+      
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
       const onSubmit = async (e) =>{
         e.preventDefault();

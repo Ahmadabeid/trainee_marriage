@@ -29,6 +29,7 @@ function TraineeForm() {
         setTrainee({...trainee,[e.target.name]: e.target.value})
       };
     
+<<<<<<< HEAD
 
 
       const headers={
@@ -36,6 +37,14 @@ function TraineeForm() {
       }
       
       const onSubmit=async(e)=>{
+=======
+      
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
+const onSubmit=async(e)=>{
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
         e.preventDefault();
 
         await axios.post("http://localhost:8085/trainee/addTrainee", trainee,{headers});

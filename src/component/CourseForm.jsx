@@ -18,7 +18,11 @@ function CourseForm() {
 };
 
 const headers={
+<<<<<<< HEAD
   Authorization: `Basic QWhtYWQ6MTIz}`,
+=======
+  Authorization: 'Basic QWhtYWQ6MTIz',
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
 }
 
 const onSubmit= async(e)=>{

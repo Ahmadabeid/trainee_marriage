@@ -17,12 +17,22 @@ const QueAns = () => {
   useEffect(() => {
     loadQueAns();
   },[]);
+
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
   const loadQueAns =async()=>{
     const fetch = await axios.get("http://localhost:8085/queAns/getAllQueAns",{headers});
     setQueAns(fetch.data);
   }
   const deleteQueAns =async(queAnsId)=>{
+<<<<<<< HEAD
     await axios.delete(`http://localhost:8085/queAns/deleteQueAnsById/${queAnsId}`,{headers})
+=======
+    await axios.delete(`http://localhost:8085/queAns/deleteQueAnsById/${queAnsId}`, {headers})
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     loadQueAns();
   }
 

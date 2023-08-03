@@ -26,10 +26,17 @@ function UpdateCourse() {
     loadCourse();
   }, []);
 
+<<<<<<< HEAD
   const headers={
     Authorization: `Basic QWhtYWQ6MTIz}`,
   }
   
+=======
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +46,11 @@ function UpdateCourse() {
   }
 
   const loadCourse = async () => {
+<<<<<<< HEAD
     const fetch = await axios.get(`http://localhost:8085/course/getCourseById/${courseId},`,{headers});
+=======
+    const fetch = await axios.get(`http://localhost:8085/course/getCourseById/${courseId}`,{headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     setCourse(fetch.data);
   }
 

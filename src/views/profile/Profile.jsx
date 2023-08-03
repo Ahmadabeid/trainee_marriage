@@ -1,14 +1,12 @@
 import React from 'react'
-import Admin from './Admin'
+import Admin from '../admin/Admin'
 
 const Profile = () => {
   return (
     <>
-    <div>
-        <p>profile</p>
-        <Admin/>
-      
-    </div>
+      <div>
+        <Admin />
+      </div>
     </>
   )
 }

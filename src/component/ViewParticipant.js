@@ -27,9 +27,16 @@ const ViewParticipant = () => {
         loadParticipant();
       }, []);
 
+<<<<<<< HEAD
       const headers={
         Authorization: `Basic QWhtYWQ6MTIz}`,
       }
+=======
+      
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     
       const onSubmit = async (e) =>{
         e.preventDefault();

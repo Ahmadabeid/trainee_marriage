@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD
 import './Trainee.css';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from './Navbar';
@@ -15,18 +16,47 @@ const Trainee = () => {
   useEffect(() => {
     loadTrainee();
   }, []);
+=======
+
+import { Link, useParams } from 'react-router-dom';
+import Navbar from './Navbar';
+import axios from 'axios';
+import Sidebar from './Sidebar';
+
+const Trainee = () => {
+  const { userID } = useParams();
+  const [trainee, setTrainee] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  // const [filteredTrainee, setFilteredTrainee] = useState([]);
+
+  useEffect(() => {
+    loadTrainee();
+  }, []);
+
+  useEffect(() => {
+    filterTrainee();
+  }, [searchQuery, trainee]);
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
 
   useEffect(() => {
     filterTrainee();
   }, [searchQuery, trainee]);
   
+const headers={
+  Authorization: `Basic QWhtYWQ6MTIz`,
+}
 
   const loadTrainee = async () => {
+<<<<<<< HEAD
     const response = await axios.get("trainee/getTrainees");
+=======
+    const response = await axios.get("http://localhost:8085/trainee/getTrainees",{headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     setTrainee(response.data);
   };
 
   const deleteTrainee = async (userID) => {
+<<<<<<< HEAD
     await axios.delete(`trainee/delete/${userID}`);
     loadTrainee();
   };
@@ -47,6 +77,34 @@ const Trainee = () => {
   };
 
   const traineeData = searchQuery ? filteredTrainee : trainee;
+=======
+    await axios.delete(`http://localhost:8085/trainee/delete/${userID}`,{headers});
+    loadTrainee();
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filterTrainee = () => {
+    const filtered = trainee.filter((item) => {
+      // Customize the filtering logic based on your data structure
+      return 
+           item.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.email.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+
+
+    // setFilteredTrainee(filtered);
+
+  };
+
+  // const traineeData = searchQuery ? filteredTrainee : trainee;
+
+  const traineeData = trainee;
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
 
   return (
     <>
@@ -93,6 +151,18 @@ const Trainee = () => {
                           <i class="fa fa-plus-alt"></i> Add Trainee
                         </button>
                       </Link>
+<<<<<<< HEAD
+=======
+                      &nbsp; &nbsp;
+
+                      <Link to="/reportGenerator">
+                        <button type="button" 
+                        class="btn btn-block btn-outline-success btn-sm"
+                        >
+                          <i class="fa fa-plus-alt"></i> Report
+                        </button>
+                      </Link>
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
                       
 
                       
@@ -125,9 +195,12 @@ const Trainee = () => {
                             <th id="us">Username</th>
                             <th id="f">Email</th>
                             <th id="n">Address</th>
+<<<<<<< HEAD
                             {/* <th id="age">Age</th> */}
                             {/* <th id="gender">Gender</th> */}
                             {/* <th id="n">Password</th> */}
+=======
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
                             <th id="us">Phone No</th>
                             <th id="us">Reg No</th>
                             <th id="f">Actions</th>
@@ -142,7 +215,11 @@ const Trainee = () => {
                               <td>{trainee.lastName}</td>
                               <td>{trainee.username}</td>
                               <td>{trainee.email}</td>
+<<<<<<< HEAD
                               {/* <td>{trainee.password}</td> */}
+=======
+                             
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
                               <td>{trainee.address}</td>
                               {/* <td>{trainee.age}</td> */}
                               {/* <td>{trainee.gender}</td> */}

@@ -18,6 +18,7 @@ const Participant = ( ) => {
     loadParticipant();
   }, []);
 
+<<<<<<< HEAD
   const headers={
     Authorization: `Basic QWhtYWQ6MTIz}`,
   }
@@ -25,11 +26,24 @@ const Participant = ( ) => {
   
   const loadParticipant =async()=>{
     const fetch = await axios.get("participant/getParticipants",{headers});
+=======
+  
+const headers={
+  Authorization: `Basic QWhtYWQ6MTIz`,
+}
+  
+  const loadParticipant =async()=>{
+    const fetch = await axios.get("http://localhost:8085/participant/getParticipants",{headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     setTParticipant(fetch.data);
   };
 
   const deleteTrainee =async(userID)=>{
+<<<<<<< HEAD
     await axios.delete(`participant/deleteParticipant/${userID}`,{headers});
+=======
+    await axios.delete(`http://localhost:8085/participant/deleteParticipant/${userID}`,{headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     loadParticipant();
   };
 

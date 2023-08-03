@@ -30,6 +30,11 @@ function UpdateQueAns (){
     }
     
 
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
     const onSubmit =async (e)=>{
         e.preventDefault();
 

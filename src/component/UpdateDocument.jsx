@@ -16,14 +16,23 @@ function UpdateDocument(){
     const{docId}=useParams();
 
     const [document, setDocument] = useState({
+<<<<<<< HEAD
         
+=======
+        docFile :"",
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
         docName:"",
         docFile:"",
         docSize:""
     });
 
+<<<<<<< HEAD
     const{ docName, docFile, docSize} =document;
  
+=======
+    const{ docFile, docName, docSize} =document;
+
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     const onInputChange=(e) =>{
         setDocument({...document, [e.target.name]: e.target.value});
     };
@@ -31,10 +40,17 @@ function UpdateDocument(){
         loadDocument()
     }, []);  
 
+<<<<<<< HEAD
     const headers={
       Authorization: `Basic QWhtYWQ6MTIz}`,
     }
     
+=======
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     
     const onSubmit =async (e)=>{
         e.preventDefault();
@@ -45,7 +61,11 @@ function UpdateDocument(){
 
     const loadDocument =async ()=>{
         const fetch= await
+<<<<<<< HEAD
         axios.get(`http://localhost:8085/document/getDocumentById/${docId}`,{headers})
+=======
+        axios.get(`http://localhost:8085/document/getDocumentById/${docId}`)
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
         setDocument(fetch.data);
     }
         

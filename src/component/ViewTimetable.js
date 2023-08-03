@@ -16,6 +16,11 @@ const ViewTimetable = () => {
     useEffect(()=>{
         loadTimeTable();
       }, []);
+
+      
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
     
       const onSubmit = async (e) =>{
         e.preventDefault();
@@ -29,7 +34,11 @@ const ViewTimetable = () => {
       
   const {ttDate, ttTime, ttTitle, ttVenue} =timeTable;
   const loadTimeTable =async()=>{
+<<<<<<< HEAD
     const fetch = await axios.get(`http://localhost:808/timetable/getTimeTableById/${timeTableId}`,{headers});
+=======
+    const fetch = await axios.get(`http://localhost:8085/timetable/getTimeTableById/${timeTableId}`, {headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     setTimeTable(fetch.data);
   }
 

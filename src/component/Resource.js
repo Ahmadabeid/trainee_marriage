@@ -12,15 +12,14 @@ const Resource = () => {
   useEffect(()=>{
     loadResource();
   }, []);
-  
 
   const loadResource =async()=>{
-    const fetch = await instance.get("resource/getResource");
+    const fetch = await axios.get("http://localhost:8080/Resource/getResource");
     setResource(fetch.data);
   };
 
   const deleteResource =async(resId)=>{
-    await instance.delete(`resource/delete/${resId}`);
+    await axios.delete(`http://localhost:8080/Resource/delete/${resId}`);
     loadResource();
   };
   

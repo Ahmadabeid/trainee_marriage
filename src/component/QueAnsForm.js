@@ -19,6 +19,7 @@ function QueAnsForm () {
 
   };
 
+<<<<<<< HEAD
   const headers={
     Authorization: `Basic QWhtYWQ6MTIz}`,
   }
@@ -27,6 +28,16 @@ function QueAnsForm () {
   const onSubmit=async(e)=>{
     e.preventDefault();
     await axios.post("http://localhost:8085/queAns/addQueAns", QueAns,{headers});
+=======
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
+  const onSubmit=async(e)=>{
+    e.preventDefault();
+    await axios.post("http://localhost:8085/queAns/addQueAns", QueAns, {headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     navigateToQueAns("/queAns");
 
   }

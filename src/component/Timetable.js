@@ -13,6 +13,7 @@ function Timetable() {
     loadTimeTable();
   }, []);
 
+<<<<<<< HEAD
   const loadTimeTable = async () => {
     const fetch = await axios.get("timetable/getTimetables");
     setTimeTable(fetch.data);
@@ -20,6 +21,20 @@ function Timetable() {
 
   const deleteTimeTable = async (timeTableId) => {
     await axios.delete(`timetable/delete/${timeTableId}`);
+=======
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+
+  const loadTimeTable =async()=>{
+    const fetch = await axios.get("http://localhost:8085/timetable/getTimetables",{headers});
+    setTimeTable(fetch.data);
+  };
+
+  const deleteTimeTable =async(timeTableId)=>{
+    await axios.delete(`http://localhost:8085/timetable/delete/${timeTableId}`,{headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     loadTimeTable();
   };
 

@@ -7,7 +7,11 @@ import { useParams, Link } from 'react-router-dom'
 
 const View = () => {
   const[document, setDocument]=useState({
+<<<<<<< HEAD
    
+=======
+    docFile:"",
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     docName:"",
     docFile:"",
     docSize:""
@@ -17,6 +21,11 @@ const View = () => {
   useEffect(()=>{
     loadDocument();
   }, []);
+
+  
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
 
   const onSubmit = async (e) =>{
     e.preventDefault();
@@ -28,7 +37,11 @@ const View = () => {
   }
   
 
+<<<<<<< HEAD
   const { docName, docFile, docSize} =document;
+=======
+  const {docFile, docName, docSize} =document;
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
   const loadDocument =async()=>{
     const fetch = await axios.get(`http://localhost:8085/document/getDocumentById/${docId}`,{headers});
     setDocument(fetch.data);

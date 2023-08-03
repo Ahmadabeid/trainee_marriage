@@ -5,6 +5,8 @@ import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import './CourseForm.css';
 import './TraineeForm.css';
+import './UpdateTrainee.css'
+
 
 function UpdateTrainee() {
     let navigate=useNavigate();
@@ -25,7 +27,7 @@ function UpdateTrainee() {
   
       });
 
-      const { firstName, middleName,lastName,username,email,address,age,gender,password,phoneNumber,regNo} = trainee;
+      const { firstName, middleName,lastName,username,email,address,gender,phoneNumber,regNo} = trainee;
 
       const onInputChange=(e) =>{
         setTrainee({...trainee, [e.target.name]: e.target.value});
@@ -35,9 +37,16 @@ function UpdateTrainee() {
         loadTrainee()
     }, []);
 
+<<<<<<< HEAD
     const headers={
       Authorization: `Basic QWhtYWQ6MTIz}`,
     }
+=======
+    
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     
     const onSubmit =async (e)=>{
         e.preventDefault();
@@ -48,9 +57,13 @@ function UpdateTrainee() {
 
     const loadTrainee =async ()=>{
         const fetch= await
+<<<<<<< HEAD
         axios.get(`http://localhost:8085/trainee/getTraineeById/${userID}`,{headers
 
         })
+=======
+        axios.get(`http://localhost:8085/trainee/getTraineeById/${userID}`,{headers})
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
         setTrainee(fetch.data);
     }
 
@@ -88,9 +101,9 @@ function UpdateTrainee() {
           <div className="card">
           <div className="card-header">
           <div className="col-sm-4">
-          <div class="form-container">
+          <div class="form-container table-wrapper">
             <h3> Update Trainee</h3>
-            <form class="form" onSubmit={(e)=>onSubmit(e)}>
+            <form class="form " onSubmit={(e)=>onSubmit(e)}>
 <div className="card-body">
   <div class="form-group">
      
@@ -156,7 +169,7 @@ function UpdateTrainee() {
   onChange={(e) => onInputChange(e)} />
   </div>
   &nbsp; &nbsp; &nbsp; &nbsp;
-  <div id="margin,form-group">
+  {/* <div id="margin,form-group">
   <label>Password:</label>
   <input className='input' 
   type="password" 
@@ -165,7 +178,7 @@ function UpdateTrainee() {
   value={password}
   onChange={(e) => onInputChange(e)}
     />
-  </div> 
+  </div>  */}
   &nbsp; &nbsp; &nbsp; &nbsp;
   <div class="margin,form-group"> 
   <label>Address:</label>
@@ -177,7 +190,7 @@ function UpdateTrainee() {
   onChange={(e) => onInputChange(e)}  />
   </div>
   &nbsp; &nbsp; &nbsp; &nbsp;
-  <div class="margin,form-group"> 
+  {/* <div class="margin,form-group"> 
   <label>Age:</label>
   <input 
   className='input' 
@@ -186,7 +199,7 @@ function UpdateTrainee() {
   id="age"
   value={age} 
   onChange={(e) => onInputChange(e)}  />
-  </div>
+  </div> */}
   &nbsp; &nbsp; &nbsp; &nbsp;
   
   
@@ -224,19 +237,22 @@ function UpdateTrainee() {
   onChange={(e) => onInputChange(e)}  />
   </div>
   &nbsp; &nbsp; &nbsp; &nbsp;
+  <div class="margin,form-group">
+  <label>Reg No:</label>
+  <input 
+  className='input' 
+  type="text" 
+  name="regNo" 
+  id="regNo" 
+  value={regNo} 
+  onChange={(e) => onInputChange(e)}  />
+  </div>
   
   </div>
-  <div class="form4">
-  &nbsp; &nbsp; 
-  
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  
-  
-  </div>
+
   </div>
   <div className="card-footer">
   <div className="col-sm-2">
-  <br></br>
 
   <Link
       to="/trainee"

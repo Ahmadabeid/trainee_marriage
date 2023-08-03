@@ -23,9 +23,17 @@ function Timetablerender (){
   }
   
   
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+}
+  
   const onSubmit= async(e)=>{
     e.preventDefault();
+<<<<<<< HEAD
     await axios.post("http://localhost:8085/TimeTable/addTimeTable", timeTable,{headers});
+=======
+    await axios.post("http://localhost:8085/timetable/addTimeTable", timeTable,{headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
     navigateToTimetable("/timeTable");
 
   }

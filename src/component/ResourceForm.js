@@ -24,13 +24,23 @@ function ResourceForm(){
     
 };
 
+<<<<<<< HEAD
 const headers={
   Authorization: `Basic QWhtYWQ6MTIz}`,
+=======
+
+const headers={
+  Authorization: 'Basic QWhtYWQ6MTIz',
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
 }
 
 const onSubmit= async(e)=>{
   e.preventDefault();
+<<<<<<< HEAD
   await axios.post("http://localhost:8085/resource/addResource", resource,{headers});
+=======
+  await axios.post("http://localhost:8085/resource/addResource", resource, {headers});
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
   navigateToResource("/resource");
 
 }

@@ -78,6 +78,13 @@
 }
 
 .table-wrapper {
+<<<<<<< HEAD
   max-height: 495px;
   overflow-y: scroll;
+=======
+  max-height: 600px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+ 
+>>>>>>> 46ff9eb49028ae9dbb4a50897874adf25fe21816
 }
