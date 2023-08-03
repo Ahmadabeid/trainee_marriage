@@ -1,11 +1,9 @@
 import React, {useState,}from 'react' 
 import './CourseForm.css'
 import Sidebar from './Sidebar';
-
 import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
-
 function CourseForm() {
   const navigateToCourset = useNavigate();
    
@@ -15,17 +13,21 @@ function CourseForm() {
             courseYear: '',
             courseLevel: ''
         });
-
  const handleChange = (e) => {
     setCourse({...course, [e.target.name]: e.target.value });
 };
 
+const headers={
+  Authorization: `Basic QWhtYWQ6MTIz}`,
+}
+
 const onSubmit= async(e)=>{
   e.preventDefault();
-  await axios.post("http://localhost:8080/Course/addCourse", course);
+  await axios.post("http://localhost:8085/course/addCourse", course,{headers});
   navigateToCourset("/courset");
 
 }
+
     return (
         <>
         <Sidebar/>

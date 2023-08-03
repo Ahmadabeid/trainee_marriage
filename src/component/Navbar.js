@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -12,25 +13,25 @@ const Navbar = () => {
 
     <ul className="navbar-nav">
       <li className="nav-item">
-        <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
+        <Link className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></Link>
       </li>
       <li className="nav-item d-none d-sm-inline-block">
-        <a  className="nav-link"></a>
+        <Link  className="nav-link"></Link>
       </li>
       <li className="nav-item d-none d-sm-inline-block">
-        <a  className="nav-link"></a>
+        <Link  className="nav-link"></Link>
       </li>
     </ul>
     <ul className="navbar-nav ml-auto">
       {/* Messages Dropdown Menu */}
       <li className="nav-item dropdown">
-        <a className="nav-link" data-toggle="dropdown" href="#">
+        <Link className="nav-link" data-toggle="dropdown" href="#">
           <i className="far fa-comments" />
           <span className="badge badge-danger navbar-badge">3</span>
-        </a>
+        </Link>
         
         <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" className="dropdown-item">
+          <Link href="#" className="dropdown-item">
             {/* Message Start */}
             <div className="media">
               <img src="/src/component/Asset/logoMufti.png" alt="User Avatar" className="img-size-50 mr-3 img-circle" />
@@ -44,9 +45,9 @@ const Navbar = () => {
               </div>
             </div>
             {/* Message End */}
-          </a>
+          </Link>
           <div className="dropdown-divider" />
-          <a href="#" className="dropdown-item">
+          <Link href="#" className="dropdown-item">
             {/* Message Start */}
             <div className="media">
               <img src="dist/img/user8-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3" />
@@ -60,9 +61,9 @@ const Navbar = () => {
               </div>
             </div>
             {/* Message End */}
-          </a>
+          </Link>
           <div className="dropdown-divider" />
-          <a href="#" className="dropdown-item">
+          <Link href="#" className="dropdown-item">
             {/* Message Start */}
             <div className="media">
               <img src="dist/img/user3-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3" />
@@ -76,22 +77,22 @@ const Navbar = () => {
               </div>
             </div>
             {/* Message End */}
-          </a>
+          </Link>
           <div className="dropdown-divider" />
-          <a href="#" className="dropdown-item dropdown-footer">See All Messages</a>
+          <Link href="#" className="dropdown-item dropdown-footer">See All Messages</Link>
         </div>
       </li>
       {/* Notifications Dropdown Menu */}
       <li className="nav-item dropdown">
-        <a className="nav-link" data-toggle="dropdown" href="#">
+        <Link className="nav-link" data-toggle="dropdown" href="#">
           <i className="far fa-user" />
-        </a>
+        </Link>
         <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div className="dropdown-divider" />
-          <a href="#" className="dropdown-item">
+          <Link href="#" className="dropdown-item">
             <i className="fas fa-envelope mr-2" /> 4 new messages
             <span className="float-right text-muted text-sm">3 mins</span>
-          </a>
+          </Link>
         </div>
       </li>
      

@@ -26,6 +26,10 @@ const ViewParticipant = () => {
       useEffect(()=>{
         loadParticipant();
       }, []);
+
+      const headers={
+        Authorization: `Basic QWhtYWQ6MTIz}`,
+      }
     
       const onSubmit = async (e) =>{
         e.preventDefault();
@@ -34,7 +38,7 @@ const ViewParticipant = () => {
       
       const { firstName, middleName,lastName,username,email,address,age,gender,password,phoneNumber,qualification, status} = participant;
       const loadParticipant =async()=>{
-        const fetch = await axios.get(`http://localhost:8080/Participant/getParticipantById/${userID}`);
+        const fetch = await axios.get(`http://localhost:8085/participant/getParticipantById/${userID}`,{headers});
         setParticipant(fetch.data);
       }
       return (

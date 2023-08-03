@@ -26,11 +26,15 @@ const ViewResource = () => {
         e.preventDefault();
     
       }
+
+      const headers={
+        Authorization: `Basic QWhtYWQ6MTIz}`,
+      }
       
     
       const {resType, resName, resContent, resFile, resDate} =resource;
       const loadResource =async()=>{
-        const fetch = await axios.get(`http://localhost:8080/Resource/getResourceById/${resId}`);
+        const fetch = await axios.get(`http://localhost:8085/resource/getResourceById/${resId}`,{headers});
         setResource(fetch.data);
       }
   return (

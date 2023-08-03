@@ -22,11 +22,15 @@ const ViewCourse = () => {
         e.preventDefault();
     
       }
+
+      const headers={
+        Authorization: `Basic QWhtYWQ6MTIz}`,
+      }
       
     
       const {courseCode, courseTitle, courseYear, courseLevel} =course;
       const loadCourse =async()=>{
-        const fetch = await axios.get(`http://localhost:8080/Course/getCourseById/${courseId}`);
+        const fetch = await axios.get(`http://localhost:8085/course/getCourseById/${courseId}`,{headers});
         setCourse(fetch.data);
       }
 

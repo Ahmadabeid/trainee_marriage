@@ -36,10 +36,11 @@ import ViewTimetable from './component/ViewTimetable';
 import UpdateTimetable from './component/UpdateTimetable';
 import ViewResource from './component/ViewResource';
 import UpdateResource from './component/UpdateResource';
-import UpdateCourse from './component/UpdateCourse';
 import UpdateQueAns from './component/UpdateQueAns';
 import ViewCourse from './component/ViewCourse'
 import UpdateTrainee from './component/UpdateTrainee';
+import UpdateCourse from './component/UpdateCourse';
+// import Register from './component/Register';
 
 
 
@@ -87,11 +88,11 @@ class App extends React.Component {
           <Route path="/updateTimetable/:timeTableId" element={<UpdateTimetable/>}/>
           <Route path="/viewResource/:resId" element={<ViewResource/>}/>
           <Route path="/updateResource/:resId" element={<UpdateResource/>}/>
-          <Route path="/updatCourse/:courseId" element={<UpdateCourse/>}/>
           <Route path='/updateQueAns/:queAnsId' element={<UpdateQueAns/>}/>
           <Route path='/viewCourse/:courseId' element={<ViewCourse/>}/>
-          <Route path='updateTrainee/:userID' element={<UpdateTrainee/>}/>
-      
+          <Route path='/updateTrainee/:userID' element={<UpdateTrainee/>}/>
+          <Route path="/updateCourse/:courseId" element={<UpdateCourse/>}/>
+          {/* <Route path="register" element={<Register/>}/> */}
           
         </Routes>
       </BrowserRouter>

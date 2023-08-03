@@ -9,41 +9,13 @@ import './DocumentForm.css'
     
 
 
-// handleChange=(e)=>{
-//     e.preventDefault();
-//     console.log('Document Id', this.state.docId);
-//     console.log('Document Type', this.state.docType);
-//     console.log('Document Name', this.state.docName);
-//     console.log('Document Size', this.state.docSize);
-
-// }
-// const certificateFileRef=useRef(null);
-// const onCertificateAttach =() => {
-//     const file = certificateFileRef.current.files[0];
-//     if (file){
-//         console.log('File Selected:', file.name);
-//     }
-// }
-// const onCertificateAttach = (e) => {
-//     const file = certificateFileRef.current.files[0];
-// }
-
-// const handleFileChange = (event) => {
-//     const file = event.target.files[0];
-//     const fileSize = file.size; // Size in bytes
-  
-//     console.log("File size:", fileSize);
-//   };
-
-
-
-
 function DocumentForm(){
   const navigateToDocument = useNavigate();
 
   const[document, setDocument]=useState({
-    docType:"",
+    
     docName:"",
+    docFile:"",
     docSize:""
   });
 
@@ -51,9 +23,14 @@ function DocumentForm(){
     setDocument({...document, [e.target.name]: e.target.value});
   };
 
+  const headers={
+    Authorization: `Basic QWhtYWQ6MTIz}`,
+  }
+  
+
   const onSubmit= async(e)=>{
     e.preventDefault();
-    await axios.post("http://localhost:8080/Document/addDocument", document);
+    await axios.post("http://localhost:8085/document/addDocument", document,{headers});
     navigateToDocument("/document");
 
   }
@@ -98,12 +75,12 @@ function DocumentForm(){
   <div className="card-body">
     <div className="di-flex">
       <div className="form-group">
-        <label htmlFor="docType">Document Type:</label>
+        <label htmlFor="docType">Document Name:</label>
         <input
           type="text"
           
-          id="docType"
-          name="docType"
+          id="docName"
+          name="docName"
           onChange={(e) => handleChange(e)}
           placeholder="Enter document type"
           required
@@ -111,11 +88,11 @@ function DocumentForm(){
       </div>
       &nbsp; &nbsp;&nbsp;
       <div  >
-        <label htmlFor="docName">Document Name:</label>
+        <label htmlFor="docName">Document File:</label>
         <input
            class="control"
           type="file"
-          id="docName"
+          id="docFile"
           title="file"
           placeholder="Enter document name"
           name="docName"
@@ -131,7 +108,7 @@ function DocumentForm(){
          
           id="docSize"
           name="docSize"
-          placeholder="Enter document size"
+          placeholder="document size"
           required
           onChange={(e) => handleChange(e)}
         />

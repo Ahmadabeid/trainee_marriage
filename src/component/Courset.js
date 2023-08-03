@@ -5,6 +5,11 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Courset = () => {
+  const instance = axios.create({
+    baseURL: 'http://localhost:8085/',
+    timeout: 1000,
+    headers: {'Authorization': 'Basic QWhtYWQ6MTIz'}
+  });
   const {courseId} = useParams();
   const[course, setCourse]=useState([]);
 
@@ -12,13 +17,15 @@ const Courset = () => {
     loadCourse();
   }, []);
 
+  
+
   const loadCourse =async()=>{
-    const fetch = await axios.get("http://localhost:8080/Course/getCourses");
+    const fetch = await instance.get("course/getCourses");
     setCourse(fetch.data);
   };
 
   const deleteCourse =async(courseId)=>{
-    await axios.delete(`http://localhost:8080/Course/deleteCourseById/${courseId}`);
+    await instance.delete(`course/deleteCourseById/${courseId}`);
     loadCourse();
   };
 

@@ -22,10 +22,14 @@ const ViewTimetable = () => {
     
       }
 
+      const headers={
+        Authorization: `Basic QWhtYWQ6MTIz}`,
+      }
+
       
   const {ttDate, ttTime, ttTitle, ttVenue} =timeTable;
   const loadTimeTable =async()=>{
-    const fetch = await axios.get(`http://localhost:8080/TimeTable/getTimeTableById/${timeTableId}`);
+    const fetch = await axios.get(`http://localhost:808/timetable/getTimeTableById/${timeTableId}`,{headers});
     setTimeTable(fetch.data);
   }
 

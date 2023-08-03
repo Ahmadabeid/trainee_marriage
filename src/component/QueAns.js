@@ -9,15 +9,20 @@ const QueAns = () => {
   const {queAnsId} = useParams();
   const[queAns, setQueAns]=useState([]);
 
+  const headers={
+    Authorization: `Basic QWhtYWQ6MTIz}`,
+  }
+  
+
   useEffect(() => {
     loadQueAns();
   },[]);
   const loadQueAns =async()=>{
-    const fetch = await axios.get("http://localhost:8080/QueAns/getAllQueAns");
+    const fetch = await axios.get("http://localhost:8085/queAns/getAllQueAns",{headers});
     setQueAns(fetch.data);
   }
   const deleteQueAns =async(queAnsId)=>{
-    await axios.delete(`http://localhost:8080/QueAns/deleteQueAnsById/${queAnsId}`)
+    await axios.delete(`http://localhost:8085/queAns/deleteQueAnsById/${queAnsId}`,{headers})
     loadQueAns();
   }
 

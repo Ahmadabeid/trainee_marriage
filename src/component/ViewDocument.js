@@ -7,8 +7,9 @@ import { useParams, Link } from 'react-router-dom'
 
 const View = () => {
   const[document, setDocument]=useState({
-    docType:"",
+   
     docName:"",
+    docFile:"",
     docSize:""
   });
   const {docId} = useParams();
@@ -21,11 +22,15 @@ const View = () => {
     e.preventDefault();
 
   }
+
+  const headers={
+    Authorization: `Basic QWhtYWQ6MTIz}`,
+  }
   
 
-  const {docType, docName, docSize} =document;
+  const { docName, docFile, docSize} =document;
   const loadDocument =async()=>{
-    const fetch = await axios.get(`http://localhost:8080/Document/getDocumentById/${docId}`);
+    const fetch = await axios.get(`http://localhost:8085/document/getDocumentById/${docId}`,{headers});
     setDocument(fetch.data);
   }
   return (
@@ -64,21 +69,21 @@ const View = () => {
     <div class="flex">
     
     <div class="fm">
-  <label htmlFor="documentType">Document Type:</label>
+  <label htmlFor="documentType">Document Name:</label>
   <input
-  value={docType}
+  value={docName}
 
-   class=" input" type="text" id="documentType" name="documentType" required />
+   class=" input" type="text" id="documentName" name="documentName" required />
   </div>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <div class="fm">
-  <label htmlFor="documentName">Document Name:</label>
+  <label htmlFor="documentFile">Document File:</label>
   <input
-  value={docName}
+  value={docFile}
   
-  class=" input" type="text" id="documentName" name="documentName" required />
+  class=" input" type="text" id="documentFile" name="File" required />
   </div>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

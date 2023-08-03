@@ -18,10 +18,14 @@ function Timetablerender (){
     setTimeTable({...timeTable, [e.target.name]: e.target.value })
   }
 
+  const headers={
+    Authorization: `Basic QWhtYWQ6MTIz}`,
+  }
+  
   
   const onSubmit= async(e)=>{
     e.preventDefault();
-    await axios.post("http://localhost:8080/TimeTable/addTimeTable", timeTable);
+    await axios.post("http://localhost:8085/TimeTable/addTimeTable", timeTable,{headers});
     navigateToTimetable("/timeTable");
 
   }

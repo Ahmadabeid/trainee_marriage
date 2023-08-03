@@ -69,3 +69,15 @@
 #gender{
   width: 80px;
 }
+.search{
+  border: solid 1px #193f65;
+}
+
+.addtrainee{
+  margin-left: 1065px !important;
+}
+
+.table-wrapper {
+  max-height: 495px;
+  overflow-y: scroll;
+}

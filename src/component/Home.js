@@ -1,13 +1,16 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
-
+import { useLocation } from 'react-router-dom';
 const Home = () => {
+  const location = useLocation();
+  const role = location.state ? location.state.role : null;
+
   return (
     <>
     <div className="wrapper">
       <Navbar/> 
-      <Sidebar />
+      <Sidebar role={role} />
   <div className="content-wrapper">
     <div className="content-header">
       <div className="container-fluid">

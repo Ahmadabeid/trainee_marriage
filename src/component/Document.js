@@ -15,13 +15,18 @@ const Document = () => {
     loadDocument();
   }, []);
 
+  const headers={
+    Authorization: `Basic QWhtYWQ6MTIz}`,
+  }
+  
+
   const loadDocument =async()=>{
-    const fetch = await axios.get("http://localhost:8080/Document/getDocuments");
+    const fetch = await axios.get("http://localhost:8085/document/getDocuments",{headers});
     setDocument(fetch.data);
   };
 
   const deleteDocument =async(docId)=>{
-    await axios.delete(`http://localhost:8080/Document/deleteDocumentById/${docId}`);
+    await axios.delete(`http://localhost:8085/document/deleteDocumentById/${docId}`,{headers});
     loadDocument();
   };
 
@@ -67,8 +72,8 @@ const Document = () => {
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Type</th>
                     <th>Name</th>
+                    <th>File</th>
                     <th>SIze</th>
                     <th>Action</th>
                   </tr>
@@ -80,9 +85,9 @@ const Document = () => {
                   <tr>
                    
                     <td key={index}>{index+1}</td>
-                    <td>{document.docType}
+                    <td>{document.docName}
                     </td>
-                    <td>{document.docName}</td>
+                    <td>{document.docFile}</td>
                     <td> {document.docSize}</td>
 
                     <td><center>

@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    height: 70%;
     padding: 2em 15em;
     /* background: linear-gradient(45deg, #0038, #0009), url('/public/mft.png'); */
     background-position: center;
@@ -17,7 +17,7 @@
 
 .inner-login-con {
     display: flex;
-    height: calc(100% - 200px);
+    height: calc(70% - 100px);
     /* background: linear-gradient(45deg, #0038, #0009), url('/public/mft.png'); */
     background-position: center;
     background-size: cover;
@@ -29,19 +29,19 @@
 .right-login-info {
     display: flex;
     flex-direction: column;
-    padding: 2.5rem;
-    height: 100%;
+    padding: 1.5rem;
+    height: 70%;
     justify-content: center;
 }
 
 .left-login-info {
-    width: calc(100% - 550px);
+    width: calc(80% - 450px);
     justify-content: space-around;
 }
 
 .right-login-info {
     flex: 1; 
-    width: 550px;
+    width: 450px;
     border: 1px solid #1f2631;
     background-color: #1f2631de;
     align-items: center;
@@ -54,7 +54,7 @@ h1.h-logo::after,
     content: '';
     background-color:darkcyan;
     border-bottom: 3px solid #39f;
-    width: 50px;
+    width: 40px;
     margin-top: .1em;
 }
 
@@ -62,7 +62,7 @@ div.form-container, div.form-container > form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    width: 100%;
+    width: 80%;
 }
 
 p {
@@ -99,13 +99,15 @@ div.social a:hover {
     border: 1px solid #39F;
     padding: 1em 1.5em;
     font-weight: 600;
-    width: 70px;
+    width: 150px;
     cursor: pointer;
+    width: 60px !important;
 
 }
 
 .username-con button:hover {
     background-color: #39F;
+    width: 150px !important;
 }
 
 .username-con input:focus {
@@ -119,6 +121,7 @@ input:focus {
 
 .button-con {
     border-bottom: none !important;
+    width: 20px !important;
 }
 .h2{
     font-weight: 400; margin: 1.5em 0; text-align: left; width: 100%;
@@ -128,6 +131,10 @@ input:focus {
 }
 .h3{
     font-weight: 400; font-size: 34px; margin: 0.5em 0;
+}
+
+.batan{
+    width: 100px !important;
 }
 
 
